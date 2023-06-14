@@ -9,13 +9,13 @@ import { manufacturers } from "@/constants";
 const SearchManufacturer = ({manufacturer,setManufacturer}:SearchManufacturerProps) => {
     const [query,setQuery] = useState<string>("");
 
-    const filteredManufacturers = query==="" ? manufacturers : manufacturers.filter((item)=>(
+    const filteredManufacturers = query==="" ? [] : manufacturers.filter((item)=>(
         item.toLowerCase().replace(/\s+/g,"").includes(query.toLowerCase().replace(/\s+/g,""))
     ));
 
   return (
     <div className="search-manufacturer">
-      <Combobox>
+      <Combobox value={manufacturer} onChange={setManufacturer}>
         <div className="relative w-full">
             <Combobox.Button className="absolute top-[14px]">
                 <Image src="/car-logo.svg" className="ml-4" width={20} height={20} alt="car brand logo"/>
@@ -26,9 +26,20 @@ const SearchManufacturer = ({manufacturer,setManufacturer}:SearchManufacturerPro
                     {   
                         filteredManufacturers.map((manufacturer)=>(
                             <Combobox.Option value={manufacturer} key={manufacturer} className={({active})=>`
-                            relative search-manufacturer__option ${active ? 'bg-primary-blue text-white':'text-gray-900'}`}>{manufacturer}</Combobox.Option>
+                            relative search-manufacturer__option ${active ? 'bg-primary-blue rounded-sm  text-white':'text-gray-900'}`}>
+                                {({ active, selected }) => (
+                                <li
+                                  className={`${
+                                    active ? 'text-white font-bold' : 'bg-white text-black'
+                                  } cursor-pointer`}
+                                >
+                                  {manufacturer}
+                                </li>
+                                )}
+                            </Combobox.Option>
                         ))
                     }
+                 
                 </Combobox.Options>
             </Transition>
         </div>
