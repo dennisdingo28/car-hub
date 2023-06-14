@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <div className="hero">
         <div className="flex-1 pt-36 padding-x">
-            <h1 className="hero__title">Find, book, or rent a car - quickly and easily!</h1>
+            <h1 className="hero__title">Find, book, or rent a car - quickly and super easy!</h1>
             <p className="hero__subtitle">Streamline your car rental experience with our efortless booking process.</p>
             <CustomButton
                 title="Explore Cars"
@@ -22,8 +22,8 @@ const Hero = () => {
         <div className="hero__image-container">
             <div className="hero__image">
                 <Image src="/hero.png" fill className="object-contain" alt="hero"/>
-                <div className="hero__image-overlay"/>
             </div>
+                <div className="hero__image-overlay"/>
         </div>
     </div>
   )
