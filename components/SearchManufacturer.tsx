@@ -28,13 +28,13 @@ const SearchManufacturer = ({manufacturer,setManufacturer}:SearchManufacturerPro
                             <Combobox.Option value={manufacturer} key={manufacturer} className={({active})=>`
                             relative search-manufacturer__option ${active ? 'bg-primary-blue rounded-sm  text-white':'text-gray-900'}`}>
                                 {({ active, selected }) => (
-                                <li
+                                <div
                                   className={`${
                                     active ? 'text-white font-bold' : 'bg-white text-black'
                                   } cursor-pointer`}
                                 >
                                   {manufacturer}
-                                </li>
+                                </div>
                                 )}
                             </Combobox.Option>
                         ))
